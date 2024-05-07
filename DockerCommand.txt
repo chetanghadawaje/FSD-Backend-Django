@@ -1,0 +1,9 @@
+POSTGRSE
+docker pull postgres
+
+docker run --name postgres-db -p 5433:5432 -d -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -e POSTGRES_DB=test postgres
+
+DJANGO
+docker build -t fsd-django-backend .
+
+docker run --name fsd-backend-con -p 8000:8000 -d fsd-django-backend:latest
